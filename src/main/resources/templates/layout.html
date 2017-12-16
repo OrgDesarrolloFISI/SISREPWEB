@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" 
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Gentellela!</title>
+
+    <!-- Bootstrap -->
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/> 
+    <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->    
+    <!-- Font Awesome -->
+    <link href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"/>
+    <!-- Custom Theme Style -->
+    <link href="/css/custom.css" rel="stylesheet"/>
+    <!-- DataTable -->
+    <link href="/css/dataTables.bootstrap.css" rel="stylesheet"/>
+</head>
+
+<body class="">
+<div class="container body">
+    <div class="main_container">
+        <!-- top navigation -->
+        <div th:replace="fragments/fragment-top-navigation :: top-navigation"></div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div layout:fragment="content"></div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <div th:replace="fragments/fragment-footer-content :: footer-content"></div>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<!-- Custom Theme Scripts -->
+<script src="/js/custom.js"></script>
+<!-- DataTable -->
+<script src="/js/dataTable.js"></script>
+<script src="/js/jquery.dataTables.js"></script>
+<script src="/js/dataTables.bootstrap.js"></script> <!-- resalta paginas -->
+
+</body>
+</html>
