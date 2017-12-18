@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Gentellela!</title>
+    <title>Layout!</title>
 
     <!-- Bootstrap -->
     <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/> 
@@ -19,6 +19,8 @@
     <link href="/css/custom.css" rel="stylesheet"/>
     <!-- DataTable -->
     <link href="/css/dataTables.bootstrap.css" rel="stylesheet"/>
+    <!-- DateRangePicker -->
+    <link href="/daterangepicker/daterangepicker.css" rel="stylesheet"/>
 </head>
 
 <body class="">
@@ -49,6 +51,25 @@
 <script src="/js/dataTable.js"></script>
 <script src="/js/jquery.dataTables.js"></script>
 <script src="/js/dataTables.bootstrap.js"></script> <!-- resalta paginas -->
+<!-- DateRangePicker -->
+<script src="/daterangepicker/moment.js"></script>
+<script src="/daterangepicker/daterangepicker.js"></script>
+<script>
+$('#startDate').daterangepicker({
+    singleDatePicker: true,
+    locale: {
+        format: 'YYYY-MM-DD'
+      },
+    startDate: moment()
+  });
+$('#endDate').daterangepicker({
+    singleDatePicker: true,
+    locale: {
+        format: 'YYYY-MM-DD'
+      },
+    startDate: moment().subtract(-7, 'days')
+  });
+</script>
 
 </body>
 </html>

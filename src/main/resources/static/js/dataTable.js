@@ -1,3 +1,5 @@
 $(document).ready(function() {
-    $('#dataTable').dataTable();
+    $('#dataTable').dataTable({
+    	"searching": false,
+    });
 } );

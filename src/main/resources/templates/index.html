@@ -36,7 +36,7 @@
 			                    <form class="form-horizontal form-label-left input_mask">
 			
 			                      <div class="form-group">
-			                      	<div class="col-md-6 col-sm-6 col-xs-12 has-feedback center-margin">
+			                      	<div class="col-md-8 col-sm-8 col-xs-12 has-feedback center-margin">
 				                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingrese codigo"/>
 				                        <span class="fa fa-search form-control-feedback left" aria-hidden="true"></span>
 			                        </div>            			                       		
@@ -45,8 +45,8 @@
 			                      <div class="ln_solid"></div>
 			                      
 			                      <div class="form-group">
-			                        <div class="col-md-8 col-sm-8 col-xs-12 center-margin">
-			                          <textarea class="form-control" rows="2" disabled="disabled"></textarea>
+			                        <div class="col-md-10 col-sm-10 col-xs-12 center-margin">
+			                          <input type="text" class="form-control" readonly="readonly" placeholder=""/>
 			                        </div>
 			                      </div>
 			
@@ -125,11 +125,29 @@
 			                      		                      
 			                      <div class="ln_solid"></div>
 			                      
-			                      <div class="form-group">
-			                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Default Input</label>
-			                        <div class="col-md-9 col-sm-9 col-xs-12">
-			                          <input type="text" class="form-control" placeholder="Default Input"/>
-			                        </div>
+			                      <div class="form-group">			                      	
+			                        <div class='col-md-6 col-sm-6 col-xs-12'>
+					                    Inicio:
+					                    <div class="form-group">
+					                        <div class='input-group date'>
+					                            <input type='text' class="form-control" id="startDate" value="2015-01-01"/>
+					                            <span class="input-group-addon">
+					                               <span class="fa fa-calendar"></span>
+					                            </span>
+					                        </div>
+					                    </div>
+					                </div> 
+									<div class='col-md-6 col-sm-6 col-xs-12'>
+					                    Fin:
+					                    <div class="form-group">
+					                        <div class='input-group date'>
+					                            <input type='text' class="form-control" id="endDate" value="2015-12-31"/>
+					                            <span class="input-group-addon">
+					                               <span class="fa fa-calendar"></span>
+					                            </span>
+					                        </div>
+					                    </div>
+					                </div> 
 			                      </div>
 			
 			                    </form>
@@ -157,37 +175,149 @@
 						<div class="clearfix"></div>
 						</div>
 						<div class="x_content">
-							<table id="dataTable" class="table table-striped table-bordered">
+							<table id="dataTable" class="table table-striped table-bordered text-center">
 								<thead>
 									<tr>
-										<th>Nombre</th>
-										<th>ApellidoPaterno</th>
-										<th>ApellidoMaterno</th>
-										<th>Codigo</th>
-										<th>Acciones</th>
+										<th>Grupo</th>
+										<th>Tipo</th>
+										<th>Hora Inicio</th>
+										<th>Hora Fin</th>
+										<th>Marca Ingreso</th>
+										<th>Marca Salida</th>
+										<th>Fecha</th>
+										<th>Horas No Laboradas</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>nombre</td>
-										<td>paterno</td>
-										<td>materno</td>
-										<td>codigo</td>
-										<td>---</td>
+										<td>1</td>
+										<td>Teoria</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
 									</tr>
 									<tr>
-										<td>nombre</td>
-										<td>paterno</td>
-										<td>materno</td>
-										<td>codigo</td>
-										<td>---</td>
+										<td>1</td>
+										<td>Practica</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
 									</tr>
 									<tr>
-										<td>nombre</td>
-										<td>paterno</td>
-										<td>materno</td>
-										<td>codigo</td>
-										<td>---</td>
+										<td>1</td>
+										<td>Teoria</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Practica</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Teoria</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Practica</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Teoria</td>
+										<td>14:00</td>
+										<td>16:00</td>
+										<td>14:00</td>
+										<td>16:00</td>
+										<td>2017-12-15</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Teoria</td>
+										<td>14:00</td>
+										<td>16:00</td>
+										<td>14:00</td>
+										<td>16:00</td>
+										<td>2017-12-15</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>Teoria</td>
+										<td>14:00</td>
+										<td>16:00</td>
+										<td>14:00</td>
+										<td>16:00</td>
+										<td>2017-12-15</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Teoria</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Practica</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Teoria</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
+									</tr>
+									<tr>
+										<td>1</td>
+										<td>Practica</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>08:00</td>
+										<td>10:00</td>
+										<td>2017-12-10</td>
+										<td>0</td>
 									</tr>
 								</tbody>
 							</table>
@@ -203,16 +333,17 @@
 					<div class="x_panel">
 					<!-- Paneles -->
 						<div class="col-md-6 col-xs-12">
-							<div class="text-center">
-								<h3>Total Horas No Laboradas:</h3>
+							<div class="form-group">						
+								<h2 class="col-md-5 col-sm-5 col-xs-12"><label>Total Horas No Laboradas:</label></h2>
+								<div class="col-md-3 col-sm-3 col-xs-12">
+		                          <input type="text" class="form-control" readonly="readonly" placeholder="0"/>
+		                        </div>
 							</div>
 			            </div>
 			             
-			            <div class="col-md-6 col-xs-12">
-			               	<div class="text-center">
-								<h3>Generar Reporte</h3>
-							</div>
-			            </div>
+			            <div class="col-md-6 col-xs-12 text-center">
+							<button type="submit" class="btn btn-primary btn-lg">Generar Reporte</button>
+						</div>
 					<!-- /Paneles -->						
 					</div>
 				</div>
