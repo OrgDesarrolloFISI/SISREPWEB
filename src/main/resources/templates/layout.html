@@ -54,20 +54,22 @@
 <!-- DateRangePicker -->
 <script src="/daterangepicker/moment.js"></script>
 <script src="/daterangepicker/daterangepicker.js"></script>
+<!-- Logica -->
+<script src="/js/logica.js"></script>
 <script>
-$('#startDate').daterangepicker({
+$('#inicioFec').daterangepicker({
     singleDatePicker: true,
     locale: {
         format: 'YYYY-MM-DD'
       },
-    startDate: moment()
+    //startDate: moment()
   });
-$('#endDate').daterangepicker({
+$('#finFec').daterangepicker({
     singleDatePicker: true,
     locale: {
         format: 'YYYY-MM-DD'
       },
-    startDate: moment().subtract(-7, 'days')
+    //startDate: moment().subtract(-7, 'days')
   });
 </script>
 

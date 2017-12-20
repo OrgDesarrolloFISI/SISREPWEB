@@ -24,7 +24,7 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="x_panel">
 					<!-- Paneles -->
-						<div class="col-md-4 col-xs-12">
+						<div class="col-md-5 col-xs-12">
 							<!-- Panel Docente -->
 							<div class="x_panel">
 			                  <div class="x_title">
@@ -37,8 +37,8 @@
 			
 			                      <div class="form-group">
 			                      	<div class="col-md-8 col-sm-8 col-xs-12 has-feedback center-margin">
-				                        <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Ingrese codigo"/>
-				                        <span class="fa fa-search form-control-feedback left" aria-hidden="true"></span>
+				                        <input type="text" class="form-control has-feedback-left" id="codigo" placeholder="Ingrese codigo" value="0A1610"/>
+				                        <span class="fa fa-search form-control-feedback left"></span>
 			                        </div>            			                       		
 			                      </div>
 		
@@ -46,17 +46,18 @@
 			                      
 			                      <div class="form-group">
 			                        <div class="col-md-10 col-sm-10 col-xs-12 center-margin">
-			                          <input type="text" class="form-control" readonly="readonly" placeholder=""/>
+			                          <input type="text" class="form-control" id="nombre" readonly="readonly" value="Santiago"/>
 			                        </div>
 			                      </div>
 			
 			                    </form>
 			                  </div>
 			                </div>
+			                <!-- /Panel Docente -->
 			            </div>
-			             
-			            <div class="col-md-4 col-xs-12">
-			                <!-- Panel Curso -->
+			            
+			            <!-- Panel Curso
+			            <div class="col-md-4 col-xs-12">			                
 							<div class="x_panel">
 			                  <div class="x_title">
 			                    <h2>Curso</h2>
@@ -69,13 +70,13 @@
 			                      <div class="form-group">
 									 <div class="col-md-8 col-sm-8 col-xs-12 center-margin">
 										<select class="form-control has-feedback-left">
-											<option>-- Seleccione Escuela --</option>
+											<option>Seleccione Escuela</option>
 											<option>Option one</option>
 											<option>Option two</option>
 											<option>Option three</option>
 											<option>Option four</option>
 										</select>
-										<span class="fa fa-university form-control-feedback left" aria-hidden="true"></span>
+										<span class="fa fa-university form-control-feedback left"></span>
 									 </div>
 								  </div>
 					                      			                     
@@ -84,22 +85,23 @@
 			                      <div class="form-group">
 			                        <div class="col-md-8 col-sm-8 col-xs-12 center-margin">
 										<select class="form-control has-feedback-left">
-											<option>-- Seleccione Curso --</option>
+											<option>Seleccione Curso</option>
 											<option>Option one</option>
 											<option>Option two</option>
 											<option>Option three</option>
 											<option>Option four</option>
 										</select>
-										<span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+										<span class="fa fa-book form-control-feedback left"></span>
 									 </div>
 			                      </div>
 			
 			                    </form>
 			                  </div>
-			                </div>
+			                </div>			                
 			            </div>
-			             
-			            <div class="col-md-4 col-xs-12">
+			            /Panel Curso -->
+			            
+			            <div class="col-md-7 col-xs-12">
 			                <!-- Panel Fecha -->
 							<div class="x_panel">
 			                  <div class="x_title">
@@ -111,15 +113,15 @@
 			                    <form class="form-horizontal form-label-left input_mask">			                      			                
 			
 			                      <div class="form-group">
-			                      	<div class="col-md-8 col-sm-8 col-xs-12 center-margin">
-										<select class="form-control has-feedback-left">
-											<option>-- Seleccione Semestre --</option>
-											<option>Option one</option>
-											<option>Option two</option>
-											<option>Option three</option>
-											<option>Option four</option>
+			                      	<div class="col-md-6 col-sm-6 col-xs-12 center-margin">
+										<select class="form-control has-feedback-left" id="periodo">
+											<option>2015-II</option>
+											<option>2016-I</option>
+											<option>2016-II</option>
+											<option>2017-I</option>
+											<option selected="selected">2017-II</option>
 										</select>
-										<span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+										<span class="fa fa-calendar-o form-control-feedback left"></span>
 									 </div>             			                       		
 			                      </div>	
 			                      		                      
@@ -130,7 +132,7 @@
 					                    Inicio:
 					                    <div class="form-group">
 					                        <div class='input-group date'>
-					                            <input type='text' class="form-control" id="startDate" value="2015-01-01"/>
+					                            <input type='text' class="form-control" id="inicioFec" value="2017-08-20" readonly="readonly"/>
 					                            <span class="input-group-addon">
 					                               <span class="fa fa-calendar"></span>
 					                            </span>
@@ -141,7 +143,7 @@
 					                    Fin:
 					                    <div class="form-group">
 					                        <div class='input-group date'>
-					                            <input type='text' class="form-control" id="endDate" value="2015-12-31"/>
+					                            <input type='text' class="form-control" id="finFec" value="2017-10-20" readonly="readonly"/>
 					                            <span class="input-group-addon">
 					                               <span class="fa fa-calendar"></span>
 					                            </span>
@@ -152,7 +154,8 @@
 			
 			                    </form>
 			                  </div>
-			                </div>			                
+			                </div>
+			                <!-- /Panel Fecha -->			                
 						</div>
 						
 						<div class="col-md-12 col-xs-12">
@@ -178,6 +181,8 @@
 							<table id="dataTable" class="table table-striped table-bordered text-center">
 								<thead>
 									<tr>
+										<th>Escuela</th>
+										<th>Curso</th>
 										<th>Grupo</th>
 										<th>Tipo</th>
 										<th>Hora Inicio</th>
@@ -190,6 +195,8 @@
 								</thead>
 								<tbody>
 									<tr>
+										<td>Sistemas</td>
+										<td>Algoritmica</td>
 										<td>1</td>
 										<td>Teoria</td>
 										<td>08:00</td>
@@ -200,6 +207,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Algoritmica</td>
 										<td>1</td>
 										<td>Practica</td>
 										<td>08:00</td>
@@ -210,6 +219,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Algoritmica</td>
 										<td>1</td>
 										<td>Teoria</td>
 										<td>08:00</td>
@@ -220,6 +231,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Algoritmica</td>
 										<td>1</td>
 										<td>Practica</td>
 										<td>08:00</td>
@@ -230,6 +243,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Algoritmica</td>
 										<td>1</td>
 										<td>Teoria</td>
 										<td>08:00</td>
@@ -240,6 +255,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Algoritmica</td>
 										<td>1</td>
 										<td>Practica</td>
 										<td>08:00</td>
@@ -250,6 +267,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Base de Datos</td>
 										<td>2</td>
 										<td>Teoria</td>
 										<td>14:00</td>
@@ -260,6 +279,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Base de Datos</td>
 										<td>2</td>
 										<td>Teoria</td>
 										<td>14:00</td>
@@ -270,6 +291,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Sistemas</td>
+										<td>Base de Datos</td>
 										<td>2</td>
 										<td>Teoria</td>
 										<td>14:00</td>
@@ -280,6 +303,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Software</td>
+										<td>Programacion</td>
 										<td>1</td>
 										<td>Teoria</td>
 										<td>08:00</td>
@@ -290,6 +315,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Software</td>
+										<td>Programacion</td>
 										<td>1</td>
 										<td>Practica</td>
 										<td>08:00</td>
@@ -300,6 +327,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Software</td>
+										<td>Programacion</td>
 										<td>1</td>
 										<td>Teoria</td>
 										<td>08:00</td>
@@ -310,6 +339,8 @@
 										<td>0</td>
 									</tr>
 									<tr>
+										<td>Software</td>
+										<td>Programacion</td>
 										<td>1</td>
 										<td>Practica</td>
 										<td>08:00</td>
