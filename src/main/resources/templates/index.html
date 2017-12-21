@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html lang="es"
+	xmlns:th="http://www.thymeleaf.org" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout">
 <head>
 <title>Asistencia Docente</title>
@@ -8,15 +10,7 @@
 <body>
 	<div class="none" role="main" layout:fragment="content">
 		<div class="">
-		
-			<!-- Titulo 
-			<div class="page-title">
-				<div class="text-center">
-					<h3>Asistencia Docente</h3>
-				</div>				
-			</div>
-			/Titulo -->
-			
+					
 			<div class="clearfix"></div>
 			
 			<!-- Row 1 -->
@@ -36,10 +30,11 @@
 			                    <form class="form-horizontal form-label-left input_mask">
 			
 			                      <div class="form-group">
-			                      	<div class="col-md-8 col-sm-8 col-xs-12 has-feedback center-margin">
-				                        <input type="text" class="form-control has-feedback-left" id="codigo" placeholder="Ingrese codigo" value="0A1610"/>
-				                        <span class="fa fa-search form-control-feedback left"></span>
-			                        </div>            			                       		
+			                      		<label class="control-label col-md-4 col-sm-4 col-xs-12" for="codigo">Codigo: </label>
+			                      		<div class="form-group col-md-4 col-sm-4 col-xs-12">
+					                        <input type="text" class="form-control has-feedback-left" id="codigo" placeholder="Ingrese codigo"/>
+					                        <span class="fa fa-search form-control-feedback left"></span>
+				                        </div>        			                       		
 			                      </div>
 		
 			                      <div class="ln_solid"></div>
@@ -113,13 +108,10 @@
 			                    <form class="form-horizontal form-label-left input_mask">			                      			                
 			
 			                      <div class="form-group">
-			                      	<div class="col-md-6 col-sm-6 col-xs-12 center-margin">
+			                      	<label class="control-label col-md-5 col-sm-5 col-xs-12" for="periodo">Periodo: </label>
+			                      	<div class="col-md-3 col-sm-3 col-xs-12">
 										<select class="form-control has-feedback-left" id="periodo">
-											<option>2015-II</option>
-											<option>2016-I</option>
-											<option>2016-II</option>
-											<option>2017-I</option>
-											<option selected="selected">2017-II</option>
+											<option th:each="periodo : ${listaPeriodo}" th:text="${periodo}"></option>
 										</select>
 										<span class="fa fa-calendar-o form-control-feedback left"></span>
 									 </div>             			                       		
@@ -128,28 +120,27 @@
 			                      <div class="ln_solid"></div>
 			                      
 			                      <div class="form-group">			                      	
-			                        <div class='col-md-6 col-sm-6 col-xs-12'>
-					                    Inicio:
-					                    <div class="form-group">
-					                        <div class='input-group date'>
-					                            <input type='text' class="form-control" id="inicioFec" value="2017-08-20" readonly="readonly"/>
-					                            <span class="input-group-addon">
-					                               <span class="fa fa-calendar"></span>
-					                            </span>
-					                        </div>
-					                    </div>
+			                        <div class='col-md-5 col-sm-5 col-xs-12'>
+			                        	<label class="control-label col-md-3 col-sm-3 col-xs-12" for="inicioFec">Inicio: </label>					                    
+					                      <div class='input-group date col-md-6 col-sm-6 col-xs-12'>
+					                          <input type='text' class="form-control" id="inicioFec" th:value="${#dates.format(fechaInicio,'yyy-MM-dd')}" readonly="readonly"/>
+					                          <span class="input-group-addon">
+					                             <span class="fa fa-calendar"></span>
+					                          </span>
+					                      </div>
 					                </div> 
-									<div class='col-md-6 col-sm-6 col-xs-12'>
-					                    Fin:
-					                    <div class="form-group">
-					                        <div class='input-group date'>
-					                            <input type='text' class="form-control" id="finFec" value="2017-10-20" readonly="readonly"/>
-					                            <span class="input-group-addon">
-					                               <span class="fa fa-calendar"></span>
-					                            </span>
-					                        </div>
-					                    </div>
-					                </div> 
+									<div class='col-md-5 col-sm-5 col-xs-12'>
+										<label class="control-label col-md-2 col-sm-2 col-xs-12" for="finFec">Fin: </label>				                    	
+					                      <div class='input-group date col-md-6 col-sm-6 col-xs-12'>
+					                          <input type='text' class="form-control" id="finFec" th:value="${#dates.format(fechaFin,'yyy-MM-dd')}" readonly="readonly"/>
+					                          <span class="input-group-addon">
+					                             <span class="fa fa-calendar"></span>
+					                          </span>
+					                      </div>
+					                </div>
+					                <div class="col-md-2 col-sm-2 col-xs-12">
+					                	 <input class="btn btn-primary" type="button" value="Aplicar"/> 
+					                </div>
 			                      </div>
 			
 			                    </form>
@@ -158,11 +149,14 @@
 			                <!-- /Panel Fecha -->			                
 						</div>
 						
+						<!-- Boton
 						<div class="col-md-12 col-xs-12">
 							<div class="text-center">
 								<button type="submit" class="btn btn-primary">Buscar</button>
 							</div>
-						</div>							
+						</div>	
+						/Boton -->
+												
 					<!-- /Paneles -->						
 					</div>
 				</div>

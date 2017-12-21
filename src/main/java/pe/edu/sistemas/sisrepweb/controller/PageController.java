@@ -1,14 +1,71 @@
 package pe.edu.sistemas.sisrepweb.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class PageController {
 	
 	protected final Log logger = LogFactory.getLog(PageController.class);
+
+	
+	@ModelAttribute("listaPeriodo")
+	public List<String> listaPeriodo(){
+		List<String> listaPeriodos = new ArrayList<String>();
+		listaPeriodos.add("2017-II");
+		listaPeriodos.add("2017-I");
+		listaPeriodos.add("2016-II");
+		listaPeriodos.add("2016-I");	
+		return listaPeriodos;
+	}
+	
+	@ModelAttribute("fechaInicio")
+	public Date fechaInicio(){
+		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy-MM-dd");
+		Date fechaInicio = null;
+		try {
+			fechaInicio = formatoDeFecha.parse("2017-08-14");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return fechaInicio;
+		
+	}
+	
+	@ModelAttribute("fechaFin")
+	public Date fechaFin(){
+		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy-MM-dd");
+		Date fechaFin = null;
+		try {
+			fechaFin = formatoDeFecha.parse("2017-12-07");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return fechaFin;
+	}
+	
+	@GetMapping("/getFechaPeriodo/{nombre}")
+	public @ResponseBody() List<String> getFechaPeriodo(@PathVariable(name="nombre",required=true) String periodo){
+		List<String> fechas = new ArrayList<String>();
+		switch(periodo){
+			case "2016-I": fechas.add("2015-03-23");fechas.add("2015-07-17");break;
+			case "2016-II": fechas.add("2016-08-15");fechas.add("2016-12-10");break;
+			case "2017-I": fechas.add("2017-03-20");fechas.add("2017-07-14");break;
+			case "2017-II": fechas.add("2017-08-14");fechas.add("2017-12-07");break;
+		}
+		return fechas;
+	}
 	
 	@GetMapping("/index")
 	public String index(){

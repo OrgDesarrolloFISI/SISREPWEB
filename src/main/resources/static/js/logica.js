@@ -24,21 +24,63 @@ function getObjectDP(){
 	return docentePeriodo;
 }
 
-
 $(document).ready(function(){
-	$("input").change(function(){
+	$("#codigo").change(function(){
 		let objDP = getObjectDP();
 		//console.log(objDP);
 		let objDPjson = JSON.stringify(objDP);
+		//llamada a la ruta de registros de asistencia
 		console.log(objDPjson);
 	});	
 });
 
-
+function obtenerFechasPeriodo(periodo){
+	let resultado = [];
+	$.ajax({
+         url: '/getFechaPeriodo/'+periodo,
+         type: 'GET', 
+         contentType: "application/json; charset=utf-8",
+         // el tipo de información que se espera de respuesta
+         dataType: "json",
+         success: function(data) {   
+        	 resultado = data;
+        	 console.log(resultado);
+        	 $('#inicioFec').val(data[0]);
+        	 $('#finFec').val(data[1]);
+        	 let inicioPer = $('#inicioFec').val();
+     		 let finPer = $('#finFec').val();
+     		 $('#inicioFec').daterangepicker({
+     		    singleDatePicker: true,
+     		    locale: {
+     		        format: 'YYYY-MM-DD'
+     		      },
+     		    minDate: inicioPer,
+     		    maxDate: finPer
+     		 });
+     		 $('#finFec').daterangepicker({
+     		    singleDatePicker: true,
+     		    locale: {
+     		        format: 'YYYY-MM-DD'
+     		      },
+     		    minDate: inicioPer,
+     		    maxDate: finPer
+     		 });
+         },
+         error : function(xhr, status) {
+             alert('Disculpe, existio un problema -- '+xhr+" -- "+status);
+             resultado = xhr;
+         },         
+	});
+	return resultado;
+}
+	
+	
 $(document).ready(function(){
 	$("select").change(function(){
-		$("#inicioFec").val("2017-09-25");
-		$("#finFec").val("2017-11-25");
+		/*$("#inicioFec").val("2017-09-25");
+		$("#finFec").val("2017-11-25");*/
+		let periodo = $("#periodo").val()
+		obtenerFechasPeriodo(periodo);		
 	});	
 });
 
