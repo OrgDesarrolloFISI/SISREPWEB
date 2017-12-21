@@ -56,6 +56,12 @@ public class DocenteServiceImpl implements DocenteService {
 			docenteModel = docenteConverter.convertirDocenteADocenteModel(docente);
 		return docenteModel;
 	}
+	
+	@Override
+	public Docente buscarDocentePorCodigoSimple(String codigo) {
+		Docente docente = docenteRepository.buscarDocentePorCodigo(codigo);
+		return docente;
+	}
 
 
 	@Override

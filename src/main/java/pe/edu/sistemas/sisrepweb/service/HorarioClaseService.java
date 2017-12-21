@@ -7,8 +7,5 @@ import pe.edu.sistemas.sisrepweb.domain.HorarioClase;
 
 public interface HorarioClaseService {
 	
-	public abstract List<HorarioClase> listarHorarioClases();
-	public abstract HorarioClase añadirHorarioClase(HorarioClase horarioClase);
-	public abstract HorarioClase buscarHorarioClasePorId(String id);
-	public abstract Integer ConvertirIntegerDeHorarioClaseDoc(HorarioClase h);
+	public abstract List<HorarioClase> obtenerHorarioCursos(String codigoDocente, String periodoNombre);
 }

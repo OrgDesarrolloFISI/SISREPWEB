@@ -36,8 +36,7 @@ public class HorarioClase implements java.io.Serializable {
 	private Integer aulaIdaula;
 	private Set<Asistencia> asistencias = new HashSet<Asistencia>(0);
 
-	public HorarioClase() {
-	}
+	public HorarioClase() {}
 
 	public HorarioClase(Docente docente, Grupo grupo, String horarioClaseTipo, String horarioClasePeriodo) {
 		this.docente = docente;

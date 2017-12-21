@@ -1,13 +1,15 @@
 package pe.edu.sistemas.sisrepweb.service;
 
+
 import java.util.List;
 
-import pe.edu.sistemas.sisrepweb.model.AsistenciaModel;
+import pe.edu.sistemas.sisrepweb.domain.Asistencia;
+import pe.edu.sistemas.sisrepweb.model.DocentePeriodo;
 
 
 public interface AsistenciaService {
-	
-	public abstract List<AsistenciaModel> listarAsistencias();
-	public abstract List<AsistenciaModel> listarAsistenciasEspecificas();
-	
+
+
+	DocentePeriodo generarDocentePeriodo(DocentePeriodo dp);
+	List<Asistencia> obtenerAsistenciasxHorarioClase( Integer idHorarioClase);
 }

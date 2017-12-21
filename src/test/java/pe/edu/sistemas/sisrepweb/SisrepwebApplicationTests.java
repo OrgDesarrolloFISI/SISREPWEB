@@ -23,11 +23,17 @@ import pe.edu.sistemas.sisrepweb.domain.Asistencia;
 import pe.edu.sistemas.sisrepweb.domain.CursoPeriodo;
 import pe.edu.sistemas.sisrepweb.domain.Docente;
 import pe.edu.sistemas.sisrepweb.domain.Grupo;
+import pe.edu.sistemas.sisrepweb.domain.HorarioClase;
 import pe.edu.sistemas.sisrepweb.domain.Periodo;
+import pe.edu.sistemas.sisrepweb.model.DocentePeriodo;
+import pe.edu.sistemas.sisrepweb.model.RegistroAsistencia;
 import pe.edu.sistemas.sisrepweb.repository.AsistenciaRepository;
 import pe.edu.sistemas.sisrepweb.repository.CursoPeriodoRepository;
 import pe.edu.sistemas.sisrepweb.repository.DocenteRepository;
 import pe.edu.sistemas.sisrepweb.repository.GrupoRepository;
+import pe.edu.sistemas.sisrepweb.repository.HorarioClaseRepository;
+import pe.edu.sistemas.sisrepweb.service.AsistenciaService;
+import pe.edu.sistemas.sisrepweb.service.HorarioClaseService;
 import pe.edu.sistemas.sisrepweb.service.PeriodoService;
 
 @RunWith(SpringRunner.class)
@@ -44,7 +50,16 @@ public class SisrepwebApplicationTests {
 	private AsistenciaRepository asistenciaRepository;
 	
 	@Autowired
+	private AsistenciaService asistenciaService;
+	
+	@Autowired
 	private CursoPeriodoRepository cursoPeriodoRepository;
+	
+	@Autowired
+	private HorarioClaseService horarioClaseService;
+	
+	@Autowired
+	private HorarioClaseRepository horarioClaseRepository;
 	
 	@Autowired
 	private GrupoRepository grupoRepository;
@@ -92,9 +107,9 @@ public class SisrepwebApplicationTests {
 	@Test
 	@Ignore
 	public void pruebaObtenerTodasLasFechas() {
-		List<DateTime> listaFechas = dateHandler.obtenerListaDeFechas("2017-12-11", "2018-12-15", 6);
-		for(DateTime fecha: listaFechas)
-			System.out.println(fecha.toString("yyyy-MM-dd"));
+		List<String> listaFechas = dateHandler.obtenerListaDeFechas("2017-12-11", "2018-12-15", 6);
+		for(String fecha: listaFechas)
+			System.out.println(fecha);
 	}
 	
 	
@@ -119,6 +134,7 @@ public class SisrepwebApplicationTests {
 	}
 	
 	@Test
+	@Ignore
 	public void pruebaObtenerAsistenciasEspecificas() {
 		
 
@@ -130,9 +146,67 @@ public class SisrepwebApplicationTests {
 		Date     date2     = dt2.toDate();
 
 		//List<Asistencia> listaAsistencias = asistenciaRepository.obtenerAsistenciasxGrupo(42,1455);
-		List<Asistencia> listaAsistencias = asistenciaRepository.obtenerAsistenciasxCurso(42,1455, date1 , date2);
+		/*List<Asistencia> listaAsistencias = asistenciaRepository.obtenerAsistenciasxDocenteyPeriodo(62,"2017-1", date1 , date2);
 		for(Asistencia asistencia: listaAsistencias)
-			logger.info(asistencia.toString());
+			logger.info(asistencia.toString());*/
 	}
-
+	
+	@Test
+	@Ignore
+	public void pruebaArrayList() {
+		
+		List<Integer> l1 = new ArrayList<>();
+		List<String> ls = new ArrayList<>();
+		
+		l1.add(1);
+		l1.add(2);
+		
+		
+		for(Integer s : l1){
+			ls = dateHandler.obtenerListaDeFechas("2017-12-11", "2018-02-11", s);
+			logger.info(s);
+			
+			for(String a : ls){
+				logger.info(a);
+			}
+		}
+		
+		
+		}
+	
+	@Test
+	public void pruebaDocentePeriodo(){
+		DocentePeriodo dp,dp2;
+		dp = new DocentePeriodo();
+		
+		dp.setCodigoDocente("0A1610");
+		dp.setPeriodoNombre("2017-1");
+		dp.setInicioFecha("2017-03-20");
+		dp.setFinFecha("2017-07-14");
+		
+		dp2 = asistenciaService.generarDocentePeriodo(dp);
+		logger.info("DP2:" + dp2.toString());
+		List<RegistroAsistencia> lra = dp2.getRegistroAsistencia();
+		
+		for(RegistroAsistencia ra: lra)
+			logger.info("ASISTENCIAS-TEST:" + ra.toString());
+		
+	}
+	
+	@Test
+	@Ignore
+	public void pruebaAsistenciasXHC(){
+		
+		List<HorarioClase> hc = horarioClaseRepository.obtenerHorarioCursos("0A0272", "2013-II");
+		for(HorarioClase h: hc)
+		{
+			logger.info("HORARIO-TEST:" + h.getIdhorarioClase() +  h.getDia() + h.getAsistencias().size());
+			for(Asistencia ra: h.getAsistencias())
+				logger.info("ASISTENCIAS-TEST:" + ra.getAsistenciaFecha());
+		}
+		
+		
+		
+		
+	}
 }
