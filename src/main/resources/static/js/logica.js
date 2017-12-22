@@ -68,7 +68,7 @@ function updateFechasPeriodo(periodo){
 	});
 }
 
-function obtenerRegistroAsistencia(objDPjson){
+function obtenerYmostrarRegistroAsistencia(objDPjson){
 	$.ajax({
 		 url: '/jsonDP',
          type: 'POST', 
@@ -76,38 +76,22 @@ function obtenerRegistroAsistencia(objDPjson){
          dataType: "json",
          data: objDPjson,
          success: function(data){
-        	 console.log(data);
+        	 console.log(data);        	 
         	 $("#nombre").val(data.nombreDocente); //si esta vacio verificar en el back que no se envie nulo
-        	 /* Inicializamos tu tabla */
-        	 $("#dataTable").html('');
-             //let table = $("#dataTable").dataTable();
-             let nuevaData = data.listaRegistroAsistencia;
-             /* Vemos que la respuesta no este vacía y sea una arreglo */
-             if(data != null && $.isArray(nuevaData)){            	 
-            	 console.log(data.listaRegistroAsistencia);
-            	 console.log(nuevaData);
-                 /* Recorremos tu respuesta con each */
-                 $.each(nuevaData, function(index, value){
-                     /* Vamos agregando a nuestra tabla las filas necesarias */
-                     $("#dataTable").append("<tr><td>" + value.escuela + "</td><td>" + value.curso
-                    		 + "</td><td>" +  value.nroGrupo + "</td><td>" + value.tipo
-                    		 + "</td><td>" +  value.horaInicio + "</td><td>" + value.horaFin
-                    		 + "</td><td>" +  value.marcaEnt + "</td><td>" + value.marcaSal
-                    		 + "</td><td>" +  value.fecha + "</td><td>" +  value.horaNL + "</td></tr>");
-                	/* table.row.add( {
-                	        "escuela":      value.escuela,
-                	        "curso":   		value.curso,
-                	        "nroGrupo":     value.nroGrupo,
-                	        "tipo": 		value.tipo,
-                	        "horaInicio":   value.horaInicio,
-                	        "horaFin":      value.horaFin,
-                	        "marcaEnt":     value.marcaEnt,
-                	        "marcaSal":     value.marcaSal,
-                	        "fecha":       	value.fecha,
-                	        "horaNL":       value.horaNL
-                	    } ).draw();*/
+        	 $("#totalHNL").val(data.totalHNL)
+        	 $("#dataTable").dataTable().fnClearTable();
+             let nuevaDataTable = data.listaRegistroAsistencia;
+             if(nuevaDataTable != null && $.isArray(nuevaDataTable)){
+            	 console.log(nuevaDataTable);
+                 $.each(nuevaDataTable, function(index, value){
+                	 $('#dataTable').dataTable().fnAddData( [
+                		 value.escuela,value.curso,
+                		 value.nroGrupo,value.tipo,
+                		 value.horaInicio,value.horaFin,
+                		 value.marcaEnt,value.marcaSal,
+                		 value.fecha,value.horaNL ]
+                	     );
                  });
-                 $("#dataTable").dataTable();
              }
          },
          error : function(xhr, status) {
@@ -115,8 +99,46 @@ function obtenerRegistroAsistencia(objDPjson){
          },		
 	});
 }
+
+/**Iniciar dataTable y dateRangePicker
+ * Capturar antes la fecha de inicio y fin fuera
+ * del dateRangePicker para que no devuelva la fecha de hoy.
+ */
+$(document).ready(function(){
+	//dataTable init	
+	$('#dataTable').dataTable({
+	    	"searching": false,
+	});
+
+	//dateRangePicker init
+	let inicioPer = $('#inicioFec').val();
+	console.log(inicioPer);
+	let finPer = $('#finFec').val();
+	console.log(finPer);
+	$('#inicioFec').daterangepicker({
+	  singleDatePicker: true,
+	  locale: {
+	      format: 'YYYY-MM-DD'
+	    },
+	  minDate: inicioPer,
+	  maxDate: finPer
+	});
+	$('#finFec').daterangepicker({
+	  singleDatePicker: true,
+	  locale: {
+	      format: 'YYYY-MM-DD'
+	    },
+	  minDate: inicioPer,
+	  maxDate: finPer
+	});
+});
+
+
 	
-	
+/** @input periodo
+ * @process Consulta las fechas del periodo seleccionado
+ * @output Nuevas fechas
+ */
 $(document).ready(function(){
 	$("select").change(function(){
 		let periodo = $("#periodo").val()
@@ -125,32 +147,27 @@ $(document).ready(function(){
 });
 
 
+/** @input codigo
+ * @process Consulta las asistencias/inasistencias
+ * @output registros en dataTable
+ */
 $(document).ready(function(){
 	$("#codigo").change(function(){
 		let objDP = getObjectDP();
 		let objDPjson = JSON.stringify(objDP);
 		console.log("Se envia:"+objDPjson);
-		//llamada a la ruta de registros de asistencia
-		obtenerRegistroAsistencia(objDPjson);
-		
+		obtenerYmostrarRegistroAsistencia(objDPjson);		
 	});	
 });
-/*
-var Producto = function(codigo, unidades) {
-	this.codigo = codigo;
-	this.unidades = unidades;
-}
-var Pedido = function(codigo, descripcion) {
-	this.codigo = codigo;
-	this.descripcion = descripcion;
-	this.productos = new Array();
-}
 
-var prod = new Producto(123,5);
-console.log(prod);
-*/
-
-
+$(document).ready(function(){
+	$("#updateButton").click(function(){
+		let objDP = getObjectDP();
+		let objDPjson = JSON.stringify(objDP);
+		console.log("Se envia:"+objDPjson);
+		obtenerYmostrarRegistroAsistencia(objDPjson);		
+	});	
+});
 	
 	
 	

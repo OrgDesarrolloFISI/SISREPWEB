@@ -48,7 +48,6 @@
 <!-- Custom Theme Scripts -->
 <script src="/js/custom.js"></script>
 <!-- DataTable -->
-<script src="/js/dataTable.js"></script>
 <script src="/js/jquery.dataTables.js"></script>
 <script src="/js/dataTables.bootstrap.js"></script> <!-- resalta paginas -->
 <!-- DateRangePicker -->
@@ -56,33 +55,6 @@
 <script src="/daterangepicker/daterangepicker.js"></script>
 <!-- Logica -->
 <script src="/js/logica.js"></script>
-<script>
-//Capturamos antes la fecha de inicio y fin 
-//porque si lo hacemos dentro del daterangepicker 
-//se volvera a la fecha de hoy
-let inicioPer = $('#inicioFec').val();
-console.log(inicioPer);
-let finPer = $('#finFec').val();
-console.log(finPer);
-$('#inicioFec').daterangepicker({
-    singleDatePicker: true,
-    locale: {
-        format: 'YYYY-MM-DD'
-      },
-    minDate: inicioPer,
-    maxDate: finPer
-    //startDate: moment()
-  });
-$('#finFec').daterangepicker({
-    singleDatePicker: true,
-    locale: {
-        format: 'YYYY-MM-DD'
-      },
-    minDate: inicioPer,
-    maxDate: finPer
-    //startDate: moment().subtract(-7, 'days')
-  });
-</script>
 
 </body>
 </html>

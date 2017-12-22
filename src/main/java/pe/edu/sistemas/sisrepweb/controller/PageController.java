@@ -79,6 +79,7 @@ public class PageController {
 		listaRegAsis.add(new RegistroAsistencia("Software","MiCurso2",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
 		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso3",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
 		docentePeriodo.setNombreDocente("existe");
+		docentePeriodo.setTotalHNL(6);
 		docentePeriodo.setListaRegistroAsistencia(listaRegAsis);
 		return docentePeriodo;
 	}
