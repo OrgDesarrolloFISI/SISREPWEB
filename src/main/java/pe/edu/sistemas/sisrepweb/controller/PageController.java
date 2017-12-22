@@ -12,7 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import pe.edu.sistemas.sisrepweb.model.DocentePeriodo;
+import pe.edu.sistemas.sisrepweb.model.RegistroAsistencia;
 
 @Controller
 public class PageController {
@@ -65,6 +70,17 @@ public class PageController {
 			case "2017-II": fechas.add("2017-08-14");fechas.add("2017-12-07");break;
 		}
 		return fechas;
+	}
+	
+	@PostMapping("/jsonDP")
+	public @ResponseBody DocentePeriodo getDocentePeriodo(@RequestBody DocentePeriodo docentePeriodo){
+		List<RegistroAsistencia> listaRegAsis= new ArrayList<RegistroAsistencia>();
+		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
+		listaRegAsis.add(new RegistroAsistencia("Software","MiCurso2",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
+		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso3",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
+		docentePeriodo.setNombreDocente("existe");
+		docentePeriodo.setListaRegistroAsistencia(listaRegAsis);
+		return docentePeriodo;
 	}
 	
 	@GetMapping("/index")
