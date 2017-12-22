@@ -3,29 +3,26 @@ package pe.edu.sistemas.sisrepweb.model;
 import java.util.List;
 
 public class DocentePeriodo {
-	
-	String codigoDocente;
-	String nombreDocente;
-	String periodoNombre;
-	String inicioFecha;
-	String finFecha;
-	int totalHNL;
+
+	private String codigoDocente;
+	private String nombreDocente;
+	private String periodoNombre;
+	private String inicioFecha;
+	private String finFecha;
+	private int totalHNL;
 	List<RegistroAsistencia> listaRegistroAsistencia;
 	
-	public DocentePeriodo(){
-		
-	}
-
+	public DocentePeriodo(){}
+	
 	public DocentePeriodo(String codigoDocente, String nombreDocente, String periodoNombre, String inicioFecha,
-			String finFecha, int totalHNL, List<RegistroAsistencia> listaRegistroAsistencia) {
+			String finFecha, List<RegistroAsistencia> registroAsistencia) {
 		super();
 		this.codigoDocente = codigoDocente;
 		this.nombreDocente = nombreDocente;
 		this.periodoNombre = periodoNombre;
 		this.inicioFecha = inicioFecha;
 		this.finFecha = finFecha;
-		this.totalHNL = totalHNL;
-		this.listaRegistroAsistencia = listaRegistroAsistencia;
+		this.listaRegistroAsistencia = registroAsistencia;
 	}
 
 	public String getCodigoDocente() {
@@ -68,6 +65,13 @@ public class DocentePeriodo {
 		this.finFecha = finFecha;
 	}
 
+	public List<RegistroAsistencia> getListaRegistroAsistencia() {
+		return listaRegistroAsistencia;
+	}
+
+	public void setListaRegistroAsistencia(List<RegistroAsistencia> registroAsistencia) {
+		this.listaRegistroAsistencia = registroAsistencia;
+	}
 	public int getTotalHNL() {
 		return totalHNL;
 	}
@@ -76,12 +80,10 @@ public class DocentePeriodo {
 		this.totalHNL = totalHNL;
 	}
 
-	public List<RegistroAsistencia> getListaRegistroAsistencia() {
-		return listaRegistroAsistencia;
+	@Override
+	public String toString() {
+		return "DocentePeriodo [codigoDocente=" + codigoDocente + ", nombreDocente=" + nombreDocente
+				+ ", periodoNombre=" + periodoNombre + ", inicioFecha=" + inicioFecha + ", finFecha=" + finFecha
+				+ ", totalHNL=" + totalHNL + "]";
 	}
-
-	public void setListaRegistroAsistencia(List<RegistroAsistencia> listaRegistroAsistencia) {
-		this.listaRegistroAsistencia = listaRegistroAsistencia;
-	}
-
 }

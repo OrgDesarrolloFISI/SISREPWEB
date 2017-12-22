@@ -1,5 +1,5 @@
 package pe.edu.sistemas.sisrepweb.domain;
-// Generated 27/03/2017 05:07:29 PM by Hibernate Tools 4.3.1.Final
+// Generated 19/12/2017 12:58:19 PM by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -118,7 +118,7 @@ public class Asistencia implements java.io.Serializable {
 		this.asistenciaFecha = asistenciaFecha;
 	}
 
-	@Column(name = "ASISTENCIA_OBSERVACION", nullable = false, length = 210)
+	@Column(name = "ASISTENCIA_OBSERVACION", nullable = false, length = 65535)
 	public String getAsistenciaObservacion() {
 		return this.asistenciaObservacion;
 	}
@@ -147,12 +147,13 @@ public class Asistencia implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Asistencia [idasistencia=" + idasistencia
+		return "Asistencia [idasistencia=" + idasistencia + ", horarioClase=" + horarioClase
 				+ ", asistenciaHoraIngreso=" + asistenciaHoraIngreso + ", asistenciaHoraSalida=" + asistenciaHoraSalida
 				+ ", asistenciaTema=" + asistenciaTema + ", asistenciaFecha=" + asistenciaFecha
 				+ ", asistenciaObservacion=" + asistenciaObservacion + ", asistenciaTipoMarca=" + asistenciaTipoMarca
 				+ ", motivoIdmotivo=" + motivoIdmotivo + "]";
 	}
-
 	
+	
+
 }

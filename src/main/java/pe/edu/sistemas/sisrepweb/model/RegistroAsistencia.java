@@ -2,22 +2,22 @@ package pe.edu.sistemas.sisrepweb.model;
 
 public class RegistroAsistencia {
 	
-	String escuela;
-	String curso;
-	int nroGrupo;
-	String tipo;
-	String horaInicio;	
-	String horaFin;
-	String marcaEnt;
-	String marcaSal;
-	String fecha;
-	int horaNL;
+	private String escuela;
+	private String curso;
+	private String nroGrupo;
+	private String tipo;
+	private String horaInicio;
+	private String horaFin;
+	private String marcaEnt;
+	private String marcaSal;
+	private String fecha;
+	private int horaNL;
 	
 	public RegistroAsistencia(){
 		
 	}
-	
-	public RegistroAsistencia(String escuela, String curso, int nroGrupo, String tipo, String horaInicio,
+
+	public RegistroAsistencia(String escuela, String curso, String nroGrupo, String tipo, String horaInicio,
 			String horaFin, String marcaEnt, String marcaSal, String fecha, int horaNL) {
 		super();
 		this.escuela = escuela;
@@ -31,7 +31,7 @@ public class RegistroAsistencia {
 		this.fecha = fecha;
 		this.horaNL = horaNL;
 	}
-
+	
 	public String getEscuela() {
 		return escuela;
 	}
@@ -40,19 +40,11 @@ public class RegistroAsistencia {
 		this.escuela = escuela;
 	}
 
-	public String getCurso() {
-		return curso;
-	}
-
-	public void setCurso(String curso) {
-		this.curso = curso;
-	}
-
-	public int getNroGrupo() {
+	public String getNroGrupo() {
 		return nroGrupo;
 	}
 
-	public void setNroGrupo(int nroGrupo) {
+	public void setNroGrupo(String nroGrupo) {
 		this.nroGrupo = nroGrupo;
 	}
 
@@ -112,4 +104,20 @@ public class RegistroAsistencia {
 		this.horaNL = horaNL;
 	}
 
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	@Override
+	public String toString() {
+		return "RegistroAsistencia [escuela=" + escuela + ", curso=" + curso + ", nroGrupo=" + nroGrupo + ", tipo="
+				+ tipo + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", marcaEnt=" + marcaEnt
+				+ ", marcaSal=" + marcaSal + ", fecha=" + fecha + ", horaNL=" + horaNL + "]";
+	}
+	
 }

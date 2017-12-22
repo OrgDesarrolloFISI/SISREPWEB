@@ -25,7 +25,7 @@ public class PageController {
 	protected final Log logger = LogFactory.getLog(PageController.class);
 
 	
-	@ModelAttribute("listaPeriodo")
+	@ModelAttribute("listaPeriodo2")
 	public List<String> listaPeriodo(){
 		List<String> listaPeriodos = new ArrayList<String>();
 		listaPeriodos.add("2017-II");
@@ -35,7 +35,7 @@ public class PageController {
 		return listaPeriodos;
 	}
 	
-	@ModelAttribute("fechaInicio")
+	@ModelAttribute("fechaInicio2")
 	public Date fechaInicio(){
 		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy-MM-dd");
 		Date fechaInicio = null;
@@ -48,7 +48,7 @@ public class PageController {
 		
 	}
 	
-	@ModelAttribute("fechaFin")
+	@ModelAttribute("fechaFin2")
 	public Date fechaFin(){
 		SimpleDateFormat formatoDeFecha = new SimpleDateFormat("yyyy-MM-dd");
 		Date fechaFin = null;
@@ -60,7 +60,7 @@ public class PageController {
 		return fechaFin;
 	}
 	
-	@GetMapping("/getFechaPeriodo/{nombre}")
+	@GetMapping("/getFechaPeriodo2/{nombre}")
 	public @ResponseBody() List<String> getFechaPeriodo(@PathVariable(name="nombre",required=true) String periodo){
 		List<String> fechas = new ArrayList<String>();
 		switch(periodo){
@@ -72,19 +72,19 @@ public class PageController {
 		return fechas;
 	}
 	
-	@PostMapping("/jsonDP")
+	@PostMapping("/jsonDPTest")
 	public @ResponseBody DocentePeriodo getDocentePeriodo(@RequestBody DocentePeriodo docentePeriodo){
 		List<RegistroAsistencia> listaRegAsis= new ArrayList<RegistroAsistencia>();
-		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
-		listaRegAsis.add(new RegistroAsistencia("Software","MiCurso2",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
-		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso3",3,"Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
+		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso","3","Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
+		listaRegAsis.add(new RegistroAsistencia("Software","MiCurso2","3","Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
+		listaRegAsis.add(new RegistroAsistencia("Sistemas","MiCurso3","3","Teoria","08:00","10:00","08:00","10:00","2017-21-21",2));
 		docentePeriodo.setNombreDocente("existe");
 		docentePeriodo.setTotalHNL(6);
 		docentePeriodo.setListaRegistroAsistencia(listaRegAsis);
 		return docentePeriodo;
 	}
 	
-	@GetMapping("/index")
+	@GetMapping("/index2")
 	public String index(){
 		logger.info("Se ingreso a index");
 		return "index";

@@ -9,6 +9,7 @@ import pe.edu.sistemas.sisrepweb.domain.Asistencia;
 
 @Repository
 public interface AsistenciaRepository extends JpaRepository<Asistencia, Serializable>{
-	
-	
+		
+
 }
+	

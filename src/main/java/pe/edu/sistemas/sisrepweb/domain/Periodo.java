@@ -1,5 +1,5 @@
 package pe.edu.sistemas.sisrepweb.domain;
-// Generated 27/03/2017 05:07:29 PM by Hibernate Tools 4.3.1.Final
+// Generated 19/12/2017 12:58:19 PM by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -24,7 +24,7 @@ public class Periodo implements java.io.Serializable {
 	private String periodoNombre;
 	private Date periodoFechaInicio;
 	private Date periodoFechaFin;
-	private Set<CursoPeriodo> cursoPeriodos = new HashSet(0);
+	private Set<CursoPeriodo> cursoPeriodos = new HashSet<CursoPeriodo>(0);
 
 	public Periodo() {
 	}
@@ -92,12 +92,4 @@ public class Periodo implements java.io.Serializable {
 		this.cursoPeriodos = cursoPeriodos;
 	}
 
-	@Override
-	public String toString() {
-		return "Periodo [idperiodo=" + idperiodo + ", periodoNombre=" + periodoNombre + ", periodoFechaInicio="
-				+ periodoFechaInicio + ", periodoFechaFin=" + periodoFechaFin + ", cursoPeriodos=" + cursoPeriodos
-				+ "]";
-	}
-
-	
 }

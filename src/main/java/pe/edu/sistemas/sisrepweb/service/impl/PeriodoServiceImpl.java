@@ -1,5 +1,6 @@
 package pe.edu.sistemas.sisrepweb.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,22 @@ public class PeriodoServiceImpl implements PeriodoService {
 		if(listaPeriodos!=null)
 			return listaPeriodos.get(0);
 		return null;
+	}
+	
+	@Override
+	public Periodo obtenerPeriodoXNombre(String periodoNombre){
+		Periodo periodo = periodoRepository.findByperiodoNombre(periodoNombre);
+		return periodo;
+	}
+	
+
+	
+	@Override
+	public List<String> obtenerNombresPeriodos(List<Periodo> periodos) {
+		List<String> nombres = new ArrayList<>();		
+		for(int i=periodos.size()-1;i>=0;i--)
+			nombres.add(periodos.get(i).getPeriodoNombre());
+		return nombres;
 	}
 
 }

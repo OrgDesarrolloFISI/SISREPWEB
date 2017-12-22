@@ -1,5 +1,5 @@
 package pe.edu.sistemas.sisrepweb.domain;
-// Generated 27/03/2017 05:07:29 PM by Hibernate Tools 4.3.1.Final
+// Generated 19/12/2017 12:58:19 PM by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -34,10 +34,9 @@ public class HorarioClase implements java.io.Serializable {
 	private String horarioClaseTipo;
 	private String horarioClasePeriodo;
 	private Integer aulaIdaula;
-	private Set<Asistencia> asistencias = new HashSet(0);
+	private Set<Asistencia> asistencias = new HashSet<Asistencia>(0);
 
-	public HorarioClase() {
-	}
+	public HorarioClase() {}
 
 	public HorarioClase(Docente docente, Grupo grupo, String horarioClaseTipo, String horarioClasePeriodo) {
 		this.docente = docente;
@@ -168,11 +167,8 @@ public class HorarioClase implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "HorarioClase [idhorarioClase=" + idhorarioClase + ", docente=" + docente + ", grupo=" + grupo
-				+ ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", aula=" + aula + ", dia=" + dia
-				+ ", horarioClaseTipo=" + horarioClaseTipo + ", horarioClasePeriodo=" + horarioClasePeriodo
-				+ ", aulaIdaula=" + aulaIdaula + ", asistencias=" + asistencias + "]";
+		return "HorarioClase [idhorarioClase=" + idhorarioClase + ", grupo=" + grupo + ", horaInicio=" + horaInicio
+				+ ", horaFin=" + horaFin + "]";
 	}
 
-	
 }

@@ -14,4 +14,6 @@ public interface PeriodoRepository extends JpaRepository<Periodo, Serializable>{
 	
 	@Query("SELECT p FROM Periodo as p ORDER BY p.idperiodo DESC")
 	List<Periodo> listarPeriodosInverso();
+	
+	public abstract Periodo findByperiodoNombre(String nombre);
 }

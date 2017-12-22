@@ -41,8 +41,8 @@ function updateFechasPeriodo(periodo){
          // el tipo de información que se espera de respuesta
          dataType: "json",
          success: function(data) {
-        	 $('#inicioFec').val(data[0]);
-        	 $('#finFec').val(data[1]);
+        	 $('#inicioFec').val(data.periodoFechaInicio);
+        	 $('#finFec').val(data.periodoFechaFin);
         	 let inicioPer = $('#inicioFec').val();
      		 let finPer = $('#finFec').val();
      		 $('#inicioFec').daterangepicker({
@@ -105,6 +105,7 @@ function obtenerYmostrarRegistroAsistencia(objDPjson){
  * del dateRangePicker para que no devuelva la fecha de hoy.
  */
 $(document).ready(function(){
+	
 	//dataTable init	
 	$('#dataTable').dataTable({
 	    	"searching": false,

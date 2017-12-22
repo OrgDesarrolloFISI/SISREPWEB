@@ -16,34 +16,10 @@ public class HorarioClaseServiceImpl implements HorarioClaseService {
 	@Autowired
 	private HorarioClaseRepository horarioClaseRepository;
 	
-	/*@Autowired
-	private HorarioClaseConverter horarioClaseConverter;
-	*/
-
-	
-
 	@Override
-	public HorarioClase añadirHorarioClase(HorarioClase horarioClase) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public HorarioClase buscarHorarioClasePorId(String id) {
-		HorarioClase horarioClase = horarioClaseRepository.getOne(id);
-		return horarioClase;
-	}
-
-	@Override
-	public Integer ConvertirIntegerDeHorarioClaseDoc(HorarioClase a) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<HorarioClase> listarHorarioClases() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<HorarioClase> obtenerHorarioCursos(String codigoDocente, String periodoNombre) {
+		List<HorarioClase> horarios = horarioClaseRepository.obtenerHorarioCursos(codigoDocente, periodoNombre);
+		return horarios;
 	}
 
 	
