@@ -10,7 +10,7 @@ public class PageController {
 	
 	protected final Log logger = LogFactory.getLog(PageController.class);
 	
-	@GetMapping("/index")
+	@GetMapping("/index2")
 	public String index(){
 		logger.info("Se ingreso a index");
 		return "index";

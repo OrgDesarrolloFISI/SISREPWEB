@@ -9,4 +9,6 @@ public interface PeriodoService {
 	
 	public abstract List<Periodo> listarPeriodos();
 	public abstract Periodo buscarUltimoPeriodo();
+	public abstract Periodo obtenerPeriodoXNombre(String periodoNombre);
+	public abstract List<String> obtenerNombresPeriodos(List<Periodo> periodos);
 }

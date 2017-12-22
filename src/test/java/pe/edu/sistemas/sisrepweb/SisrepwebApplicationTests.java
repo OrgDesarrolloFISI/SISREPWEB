@@ -116,7 +116,7 @@ public class SisrepwebApplicationTests {
 	@Test
 	@Ignore
 	public void pruebaObtenerGruposEspecificos() {
-		List<Grupo> listaGrupos = grupoRepository.obtenerGruposxDocenteyEscuela("2017-II",24,200);
+		List<Grupo> listaGrupos = null ; //grupoRepository.obtenerGruposxDocenteyEscuela("2017-II",24,200);
 		//Si se ingresa idEscuela = 201 devuelve cursos de Sistemas
 		//Si se ingresa idEscuela = 200 devuelve cursos de Software
 		for(Grupo grupo: listaGrupos)
@@ -126,7 +126,7 @@ public class SisrepwebApplicationTests {
 	@Test
 	@Ignore
 	public void pruebaObtenerCursosEspecificos() {
-		List<CursoPeriodo> listaCursos = cursoPeriodoRepository.obtenerCursosxDocenteyEscuela("2017-II",24,200);
+		List<CursoPeriodo> listaCursos = null ;//cursoPeriodoRepository.obtenerCursosxDocenteyEscuela("2017-II",24,200);
 		//Si se ingresa idEscuela = 201 devuelve cursos de Sistemas
 		//Si se ingresa idEscuela = 200 devuelve cursos de Software
 		for(CursoPeriodo curso: listaCursos)
@@ -184,25 +184,23 @@ public class SisrepwebApplicationTests {
 		dp.setInicioFecha("2017-03-20");
 		dp.setFinFecha("2017-07-14");
 		
-		dp2 = asistenciaService.generarDocentePeriodo(dp);
+		dp2 = asistenciaService.generarRegistroAsistenciaDeDocente(dp);
 		logger.info("DP2:" + dp2.toString());
-		List<RegistroAsistencia> lra = dp2.getRegistroAsistencia();
+		List<RegistroAsistencia> lra = dp2.getListaRegistroAsistencia();
 		
 		for(RegistroAsistencia ra: lra)
 			logger.info("ASISTENCIAS-TEST:" + ra.toString());
-		
 	}
 	
 	@Test
 	@Ignore
 	public void pruebaAsistenciasXHC(){
 		
-		List<HorarioClase> hc = horarioClaseRepository.obtenerHorarioCursos("0A0272", "2013-II");
+		List<HorarioClase> hc = horarioClaseRepository.obtenerHorarioCursos("0A1610", "2017-1");
 		for(HorarioClase h: hc)
 		{
-			logger.info("HORARIO-TEST:" + h.getIdhorarioClase() +  h.getDia() + h.getAsistencias().size());
-			for(Asistencia ra: h.getAsistencias())
-				logger.info("ASISTENCIAS-TEST:" + ra.getAsistenciaFecha());
+				logger.info("HC: " + h.getIdhorarioClase() + ":" + h.getDia() + ":" + h.getGrupo().getGrupoNumero() + ":" + h.getHorarioClaseTipo());
+			
 		}
 		
 		

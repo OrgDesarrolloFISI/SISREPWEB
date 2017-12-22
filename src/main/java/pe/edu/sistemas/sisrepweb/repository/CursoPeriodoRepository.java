@@ -15,11 +15,5 @@ import pe.edu.sistemas.sisrepweb.domain.Grupo;
 @Repository
 @Transactional
 public interface CursoPeriodoRepository extends JpaRepository<CursoPeriodo, Serializable>{
-	
-	@Query(value = "SELECT distinct hc.grupo.cursoPeriodo FROM HorarioClase hc "
-			+ "WHERE hc.horarioClasePeriodo = :periodo "
-			+ "AND hc.docente.iddocente = :idDocente "
-			+ "AND hc.grupo.cursoPeriodo.cursoConjunto.cursoBase.plan.escuela.idescuela = :idEscuela")
-	List<CursoPeriodo> obtenerCursosxDocenteyEscuela(@Param("periodo") String periodo,
-			@Param("idDocente") Integer idDocente, @Param("idEscuela") Integer idEscuela);
+
 }

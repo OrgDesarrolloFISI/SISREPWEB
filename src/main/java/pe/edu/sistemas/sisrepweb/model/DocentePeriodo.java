@@ -9,7 +9,8 @@ public class DocentePeriodo {
 	private String periodoNombre;
 	private String inicioFecha;
 	private String finFecha;
-	List<RegistroAsistencia> registroAsistencia;
+	private int totalHNL;
+	List<RegistroAsistencia> listaRegistroAsistencia;
 	
 	public DocentePeriodo(){}
 	
@@ -21,7 +22,7 @@ public class DocentePeriodo {
 		this.periodoNombre = periodoNombre;
 		this.inicioFecha = inicioFecha;
 		this.finFecha = finFecha;
-		this.registroAsistencia = registroAsistencia;
+		this.listaRegistroAsistencia = registroAsistencia;
 	}
 
 	public String getCodigoDocente() {
@@ -64,19 +65,32 @@ public class DocentePeriodo {
 		this.finFecha = finFecha;
 	}
 
-	public List<RegistroAsistencia> getRegistroAsistencia() {
-		return registroAsistencia;
+	public List<RegistroAsistencia> getListaRegistroAsistencia() {
+		return listaRegistroAsistencia;
 	}
 
-	public void setRegistroAsistencia(List<RegistroAsistencia> registroAsistencia) {
-		this.registroAsistencia = registroAsistencia;
+	public void setListaRegistroAsistencia(List<RegistroAsistencia> registroAsistencia) {
+		this.listaRegistroAsistencia = registroAsistencia;
+	}
+	
+	
+
+	public int getTotalHNL() {
+		return totalHNL;
+	}
+
+	public void setTotalHNL(int totalHNL) {
+		this.totalHNL = totalHNL;
 	}
 
 	@Override
 	public String toString() {
 		return "DocentePeriodo [codigoDocente=" + codigoDocente + ", nombreDocente=" + nombreDocente
-				+ ", periodoNombre=" + periodoNombre + ", inicioFecha=" + inicioFecha + ", finFecha=" + finFecha + "]";
+				+ ", periodoNombre=" + periodoNombre + ", inicioFecha=" + inicioFecha + ", finFecha=" + finFecha
+				+ ", totalHNL=" + totalHNL + "]";
 	}
+
+	
 	
 	
 }

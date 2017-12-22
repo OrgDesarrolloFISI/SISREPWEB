@@ -16,9 +16,6 @@ public class HorarioClaseServiceImpl implements HorarioClaseService {
 	@Autowired
 	private HorarioClaseRepository horarioClaseRepository;
 	
-	/*@Autowired
-	private HorarioClaseConverter horarioClaseConverter;
-	*/
 	@Override
 	public List<HorarioClase> obtenerHorarioCursos(String codigoDocente, String periodoNombre) {
 		List<HorarioClase> horarios = horarioClaseRepository.obtenerHorarioCursos(codigoDocente, periodoNombre);
