@@ -175,6 +175,7 @@ public class SisrepwebApplicationTests {
 		}
 	
 	@Test
+	@Ignore
 	public void pruebaDocentePeriodo(){
 		DocentePeriodo dp,dp2;
 		dp = new DocentePeriodo();
@@ -193,13 +194,20 @@ public class SisrepwebApplicationTests {
 	}
 	
 	@Test
-	@Ignore
+	//@Ignore
 	public void pruebaAsistenciasXHC(){
 		
-		List<HorarioClase> hc = horarioClaseRepository.obtenerHorarioCursos("0A1610", "2017-1");
+		List<HorarioClase> hc = horarioClaseRepository.obtenerHorarioCursos("055867", "2014-II");
 		for(HorarioClase h: hc)
 		{
-				logger.info("HC: " + h.getIdhorarioClase() + ":" + h.getDia() + ":" + h.getGrupo().getGrupoNumero() + ":" + h.getHorarioClaseTipo());
+			logger.info("HC: " + h.getIdhorarioClase() + ":" + h.getDia() + 
+					":" + h.getGrupo().getGrupoNumero() + ":" + h.getHorarioClaseTipo()+
+					":" + h.getGrupo().getCursoPeriodo().getIdcursoPeriodo()+
+					":" + h.getGrupo().getCursoPeriodo().getCursoPeriodoNombre()+
+					":" + h.getGrupo().getCursoPeriodo().getCursoConjunto().getCursocCodcomun()+
+					":" + h.getGrupo().getCursoPeriodo().getCursoConjunto().getCursocNombre()+
+					":" + h.getGrupo().getCursoPeriodo().getCursoConjunto().getCursoBase().getCursobNombre()+
+					":" + h.getGrupo().getCursoPeriodo().getCursoConjunto().getCursoBase().getPlan().getPlanNombre());
 			
 		}
 		
