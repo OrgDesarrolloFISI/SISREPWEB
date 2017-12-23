@@ -11,12 +11,14 @@ import org.springframework.stereotype.Service;
 
 import pe.edu.sistemas.sisrepweb.component.DateHandler;
 import pe.edu.sistemas.sisrepweb.domain.Asistencia;
+import pe.edu.sistemas.sisrepweb.domain.CursoConjunto;
 import pe.edu.sistemas.sisrepweb.domain.Docente;
 import pe.edu.sistemas.sisrepweb.domain.HorarioClase;
 import pe.edu.sistemas.sisrepweb.domain.Periodo;
 import pe.edu.sistemas.sisrepweb.model.DocentePeriodo;
 import pe.edu.sistemas.sisrepweb.model.RegistroAsistencia;
 import pe.edu.sistemas.sisrepweb.service.AsistenciaService;
+import pe.edu.sistemas.sisrepweb.service.CursoService;
 import pe.edu.sistemas.sisrepweb.service.DocenteService;
 import pe.edu.sistemas.sisrepweb.service.HorarioClaseService;
 import pe.edu.sistemas.sisrepweb.service.PeriodoService;
@@ -38,6 +40,9 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 	
 	@Autowired
 	private PeriodoService periodoService;
+	
+	@Autowired
+	private CursoService cursoService;
 	
 	
 	@Override
@@ -117,12 +122,10 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 	public List<RegistroAsistencia> guardarFechasAsistencia(List<String> ls, DocentePeriodo dp, HorarioClase hc){
 		List<RegistroAsistencia> ra = new ArrayList<>();
 		RegistroAsistencia  temp = null;
-		
+		CursoConjunto cursoc = cursoService.obtenerCursoConjuntoXCodComun(hc.getGrupo().getCursoPeriodo().getCursoConjunto().getIdcursoConjunto());
 		for(String s: ls){
 			temp = new RegistroAsistencia();
-			
-			temp.setEscuela(hc.getGrupo().getCursoPeriodo().getCursoConjunto().getCursoBase().getPlan().getPlanNombre().substring(5));
-			temp.setCurso(hc.getGrupo().getCursoPeriodo().getCursoPeriodoNombre());
+			temp.setEscuela(cursoc.getCursoBase().getPlan().getPlanNombre().substring(5));temp.setCurso(hc.getGrupo().getCursoPeriodo().getCursoPeriodoNombre());
 			temp.setNroGrupo(Integer.toString(hc.getGrupo().getGrupoNumero()));
 			temp.setTipo(hc.getHorarioClaseTipo());
 			temp.setHoraInicio(dateHandler.obtenerHora(hc.getHoraInicio()));
