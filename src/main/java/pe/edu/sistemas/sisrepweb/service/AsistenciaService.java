@@ -12,6 +12,6 @@ public interface AsistenciaService {
 
 	DocentePeriodo generarRegistroAsistenciaDeDocente(DocentePeriodo dp);
 	DocentePeriodo generarDocentePeriodo(DocentePeriodo dp);
-	List<RegistroAsistencia> guardarFechasAsistencia(List<String> ls, DocentePeriodo dp, HorarioClase hc);
+	List<RegistroAsistencia> guardarFechasAsistencia(List<String> ls, HorarioClase hc);
 	Boolean validarDocenteyPeriodo(String codigoDocente, String periodoNombre);
 }

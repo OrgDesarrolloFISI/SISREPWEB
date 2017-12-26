@@ -63,7 +63,7 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 			//Obtener todas las fechas y guardarlas
 			listaDeFechas = dateHandler.obtenerListaDeFechas(dp.getInicioFecha(), dp.getFinFecha(), horario.getDia());
 			
-			listaRATemporal = guardarFechasAsistencia(listaDeFechas, dp, horario);
+			listaRATemporal = guardarFechasAsistencia(listaDeFechas, horario);
 			
 			for(RegistroAsistencia registroasistencia: listaRATemporal){
 				
@@ -119,7 +119,7 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 		
 	
 	@Override
-	public List<RegistroAsistencia> guardarFechasAsistencia(List<String> ls, DocentePeriodo dp, HorarioClase hc){
+	public List<RegistroAsistencia> guardarFechasAsistencia(List<String> ls, HorarioClase hc){
 		List<RegistroAsistencia> ra = new ArrayList<>();
 		RegistroAsistencia  temp = null;
 		CursoConjunto cursoc = cursoService.obtenerCursoConjuntoXCodComun(hc.getGrupo().getCursoPeriodo().getCursoConjunto().getIdcursoConjunto());
@@ -137,7 +137,7 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 			ra.add(temp);
 		}
 		logger.info("[ESCUELA --------> "+temp.getEscuela()+"--------------");
-		logger.info("[ID CURSO_CONJUNTO -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getIdcursoConjunto());
+		logger.info("[ID CURSO_CONJUNTO -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getIdcursoConjunto()); // cursoConjunto incorrecto
 		logger.info("[CODIGO COMUN -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getCursocCodcomun());
 		return ra;
 	}

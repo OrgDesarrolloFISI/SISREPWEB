@@ -170,6 +170,3 @@ $(document).ready(function(){
 	});	
 });
 	
-	
-	
-	
