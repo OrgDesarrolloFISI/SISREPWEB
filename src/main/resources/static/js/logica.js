@@ -14,7 +14,7 @@ class DocentePeriodo {
 
 
 function getObjectDP(){
-	let codigo = $("#codigo").val();
+	let codigo = $("#codigo").val().trim();
 	let nombre = $("#nombre").val();
 	let periodo = $("#periodo").val();
 	let inicio = $("#inicioFec").val();
@@ -41,10 +41,10 @@ function updateFechasPeriodo(periodo){
          // el tipo de información que se espera de respuesta
          dataType: "json",
          success: function(data) {
-        	 $('#inicioFec').val(data.periodoFechaInicio);
-        	 $('#finFec').val(data.periodoFechaFin);
-        	 let inicioPer = $('#inicioFec').val();
-     		 let finPer = $('#finFec').val();
+        	 let inicioPer = data.periodoFechaInicio;
+        	 let finPer = data.periodoFechaFin;
+        	 $('#inicioFec').val(inicioPer);
+        	 $('#finFec').val(finPer);     		 
      		 $('#inicioFec').daterangepicker({
      		    singleDatePicker: true,
      		    locale: {
@@ -76,13 +76,13 @@ function obtenerYmostrarRegistroAsistencia(objDPjson){
          dataType: "json",
          data: objDPjson,
          success: function(data){
-        	 console.log(data);        	 
+        	 //console.log(data);        	 
         	 $("#nombre").val(data.nombreDocente); //si esta vacio verificar en el back que no se envie nulo
         	 $("#totalHNL").val(data.totalHNL)
         	 $("#dataTable").dataTable().fnClearTable();
              let nuevaDataTable = data.listaRegistroAsistencia;
              if(nuevaDataTable != null && $.isArray(nuevaDataTable)){
-            	 console.log(nuevaDataTable);
+            	 //console.log(nuevaDataTable);
                  $.each(nuevaDataTable, function(index, value){
                 	 $('#dataTable').dataTable().fnAddData( [
                 		 value.escuela,value.curso,
@@ -92,6 +92,9 @@ function obtenerYmostrarRegistroAsistencia(objDPjson){
                 		 value.fecha,value.horaNL ]
                 	     );
                  });
+     			$('#btnReporte').attr("disabled",false);
+             }else{
+            	$('#btnReporte').attr("disabled",true);
              }
          },
          error : function(xhr, status) {
@@ -106,6 +109,8 @@ function obtenerYmostrarRegistroAsistencia(objDPjson){
  */
 $(document).ready(function(){
 	
+	$('#btnReporte').attr("disabled",true);
+	
 	//dataTable init	
 	$('#dataTable').dataTable({
 	    	"searching": false,
@@ -113,9 +118,9 @@ $(document).ready(function(){
 
 	//dateRangePicker init
 	let inicioPer = $('#inicioFec').val();
-	console.log(inicioPer);
+	//console.log(inicioPer);
 	let finPer = $('#finFec').val();
-	console.log(finPer);
+	//console.log(finPer);
 	$('#inicioFec').daterangepicker({
 	  singleDatePicker: true,
 	  locale: {
@@ -154,10 +159,16 @@ $(document).ready(function(){
  */
 $(document).ready(function(){
 	$("#codigo").change(function(){
-		let objDP = getObjectDP();
-		let objDPjson = JSON.stringify(objDP);
-		console.log("Se envia:"+objDPjson);
-		obtenerYmostrarRegistroAsistencia(objDPjson);		
+		let codTemp = $("#codigo").val().trim();
+		//console.log(codTemp);
+		if(codTemp!==""){
+			let objDP = getObjectDP();
+			let objDPjson = JSON.stringify(objDP);
+			//console.log("Se envia:"+objDPjson);
+			obtenerYmostrarRegistroAsistencia(objDPjson);
+		}else{
+			alert("El codigo no puede estar blanco");				
+		}
 	});	
 });
 
@@ -165,7 +176,7 @@ $(document).ready(function(){
 	$("#updateButton").click(function(){
 		let objDP = getObjectDP();
 		let objDPjson = JSON.stringify(objDP);
-		console.log("Se envia:"+objDPjson);
+		//console.log("Se envia:"+objDPjson);
 		obtenerYmostrarRegistroAsistencia(objDPjson);		
 	});	
 });
