@@ -1,10 +1,8 @@
 package pe.edu.sistemas.sisrepweb;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -18,8 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.sistemas.sisrepweb.component.DateHandler;
-import pe.edu.sistemas.sisrepweb.controller.PageController;
-import pe.edu.sistemas.sisrepweb.domain.Asistencia;
 import pe.edu.sistemas.sisrepweb.domain.CursoPeriodo;
 import pe.edu.sistemas.sisrepweb.domain.Docente;
 import pe.edu.sistemas.sisrepweb.domain.Grupo;

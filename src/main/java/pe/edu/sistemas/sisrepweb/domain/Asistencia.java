@@ -21,6 +21,10 @@ import javax.persistence.TemporalType;
 @Table(name = "ASISTENCIA", catalog = "modelogeneralfisi")
 public class Asistencia implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8216791242580588216L;
 	private Integer idasistencia;
 	private HorarioClase horarioClase;
 	private Date asistenciaHoraIngreso;

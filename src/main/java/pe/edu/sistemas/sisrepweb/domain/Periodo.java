@@ -4,6 +4,7 @@ package pe.edu.sistemas.sisrepweb.domain;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,6 +21,10 @@ import javax.persistence.TemporalType;
 @Table(name = "PERIODO", catalog = "modelogeneralfisi")
 public class Periodo implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5091073014317572247L;
 	private int idperiodo;
 	private String periodoNombre;
 	private Date periodoFechaInicio;

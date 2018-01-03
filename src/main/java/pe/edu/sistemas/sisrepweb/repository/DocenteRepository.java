@@ -6,12 +6,10 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import pe.edu.sistemas.sisrepweb.domain.Docente;
 
 @Repository
-@Transactional
 public interface DocenteRepository extends JpaRepository<Docente, Serializable>{
 	
 	@Query("select d from Docente as d where d.persona.personaCodigo like ?1%")

@@ -1,13 +1,15 @@
 package pe.edu.sistemas.sisrepweb.domain;
 // Generated 19/12/2017 12:58:19 PM by Hibernate Tools 4.3.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -21,6 +23,10 @@ import javax.persistence.Table;
 @Table(name = "GRUPO", catalog = "modelogeneralfisi")
 public class Grupo implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5199337000216789010L;
 	private Integer idgrupo;
 	private CursoPeriodo cursoPeriodo;
 	private int grupoNumero;

@@ -21,6 +21,10 @@ import javax.persistence.Table;
 @Table(name = "CURSO_BASE", catalog = "modelogeneralfisi")
 public class CursoBase implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1199288596052272584L;
 	private Integer idcursoGeneral;
 	private Plan plan;
 	private String cursobCodigo;

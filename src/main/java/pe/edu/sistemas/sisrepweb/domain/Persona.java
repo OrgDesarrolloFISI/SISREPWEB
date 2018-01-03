@@ -1,14 +1,16 @@
 package pe.edu.sistemas.sisrepweb.domain;
 // Generated 19/12/2017 12:58:19 PM by Hibernate Tools 4.3.1.Final
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,6 +24,10 @@ import javax.persistence.TemporalType;
 @Table(name = "PERSONA", catalog = "modelogeneralfisi")
 public class Persona implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1430589900432371525L;
 	private Integer idPersona;
 	private String personaCodigo;
 	private String personaNombre;
