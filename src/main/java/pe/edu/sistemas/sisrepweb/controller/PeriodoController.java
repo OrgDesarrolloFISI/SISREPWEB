@@ -20,7 +20,6 @@ public class PeriodoController {
 	@GetMapping("/getFechaPeriodo/{nombre}")
 	public @ResponseBody Periodo getFechaPeriodo(@PathVariable(name ="nombre", required = false) String periodoNombre){		
 		Periodo periodo = periodoService.obtenerPeriodoXNombre(periodoNombre);
-		periodo.setCursoPeriodos(null);
 		return periodo;
 	}
 }

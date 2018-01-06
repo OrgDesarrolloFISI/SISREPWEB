@@ -11,16 +11,16 @@
     <title>Layout</title>
 
     <!-- Bootstrap -->
-    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/> 
+    <link th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" rel="stylesheet"/> 
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->    
     <!-- Font Awesome -->
-    <link href="/webjars/font-awesome/4.6.1/css/font-awesome.min.css" rel="stylesheet"/>
+    <link th:href="@{/webjars/font-awesome/4.6.1/css/font-awesome.min.css}" rel="stylesheet"/>
     <!-- Custom Theme Style -->
-    <link href="/css/custom.css" rel="stylesheet"/>
+    <link th:href="@{/css/custom.css}" href="../../css/custom.css" rel="stylesheet"/>
     <!-- DataTable -->
-    <link href="/css/dataTables.bootstrap.css" rel="stylesheet"/>
+    <link th:href="@{/css/dataTables.bootstrap.css}" href="../../css/dataTables.bootstrap.css" rel="stylesheet"/>
     <!-- DateRangePicker -->
-    <link href="/daterangepicker/daterangepicker.css" rel="stylesheet"/>
+    <link  th:href="@{/daterangepicker/daterangepicker.css}" href="../../daterangepicker/daterangepicker.css" rel="stylesheet"/>
 </head>
 
 <body class="">
@@ -41,20 +41,20 @@
 </div>
 
 <!-- jQuery -->
-<script src="/webjars/jquery/2.2.3/jquery.min.js"></script>
+<script th:src="@{/webjars/jquery/2.2.3/jquery.min.js}" ></script>
 <!-- Bootstrap -->
-<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
 <!-- Custom Theme Scripts -->
-<script src="/js/custom.js"></script>
+<script th:src="@{/js/custom.js}" src="../../js/custom.js" ></script>
 <!-- DataTable -->
-<script src="/js/jquery.dataTables.js"></script>
-<script src="/js/dataTables.bootstrap.js"></script> <!-- resalta paginas -->
+<script th:src="@{/js/jquery.dataTables.js}" src="../../js/jquery.dataTables.js"></script>
+<script  th:src="@{/js/dataTables.bootstrap.js}" src="../../js/dataTables.bootstrap.js"></script> <!-- resalta paginas -->
 <!-- DateRangePicker -->
-<script src="/daterangepicker/moment.js"></script>
-<script src="/daterangepicker/daterangepicker.js"></script>
+<script  th:src="@{/daterangepicker/moment.js}" src="../../daterangepicker/moment.js"></script>
+<script th:src="@{/daterangepicker/daterangepicker.js}" src="../../daterangepicker/daterangepicker.js"></script>
 <!-- Logica -->
-<script src="/js/logica.js"></script>
+<script th:src="@{/js/logica.js}" src="../../js/logica.js"></script>
 
 </body>
 </html>

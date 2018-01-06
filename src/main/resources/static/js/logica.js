@@ -35,7 +35,7 @@ function setInputsDP(codigo,nombre,periodo,inicio,fin){
 
 function updateFechasPeriodo(periodo){
 	$.ajax({
-         url: '/getFechaPeriodo/'+periodo,
+         url: '/sisrepweb/getFechaPeriodo/'+periodo,  // cambiar: url: /getFechaPeriodo  para pruebas
          type: 'GET', 
          contentType: "application/json; charset=utf-8",
          // el tipo de información que se espera de respuesta
@@ -70,7 +70,7 @@ function updateFechasPeriodo(periodo){
 
 function obtenerYmostrarRegistroAsistencia(objDPjson){
 	$.ajax({
-		 url: '/jsonDP',
+		 url: '/sisrepweb/jsonDP',    // cambiar: url: /jsonDP para pruebas 
          type: 'POST', 
          contentType: "application/json; charset=utf-8",
          dataType: "json",
