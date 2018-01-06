@@ -136,9 +136,9 @@ public class AsistenciaServiceImpl implements AsistenciaService {
 			temp.setMarcaSal("NO MARCO");
 			ra.add(temp);
 		}
-		logger.info("[ESCUELA --------> "+temp.getEscuela()+"--------------");
-		logger.info("[ID CURSO_CONJUNTO -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getIdcursoConjunto()); // cursoConjunto incorrecto
-		logger.info("[CODIGO COMUN -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getCursocCodcomun());
+		//logger.info("[ESCUELA --------> "+temp.getEscuela()+"--------------");
+		//logger.info("[ID CURSO_CONJUNTO -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getIdcursoConjunto()); // cursoConjunto incorrecto
+		//logger.info("[CODIGO COMUN -------> "+hc.getGrupo().getCursoPeriodo().getCursoConjunto().getCursocCodcomun());
 		return ra;
 	}
 
