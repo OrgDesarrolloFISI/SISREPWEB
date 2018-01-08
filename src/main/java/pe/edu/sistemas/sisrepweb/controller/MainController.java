@@ -47,7 +47,7 @@ public class MainController {
 	}
 	
 	
-	@GetMapping("/asistencias")
+	@GetMapping({"/", "/asistencias"})
 	public String index(){		
 		return "asistencias";
 	}
